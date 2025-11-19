@@ -1,0 +1,32 @@
+===============================================DEBUG_H MANUAL===============================================
+
+To turn on debug and logging define in debug.h:
+
+TEXT_DEBUG_MODE - for txt log file (.log)
+HTML_DEBUG_MODE - for html log file (.html)
+
+Call initialize_log(file_name, log_title) in the beginning of your code
+Do not forget to call end_debugging() in the end of your code (this closes log file)
+
+------------------------------------------------------------------------------------------------------------
+Debug is on means that either TEXT_DEBUG_MODE or HTML_DEBUG_MODE is defined
+------------------------------------------------------------------------------------------------------------
+
+Non-dependent on log file type functions:
+
+printf_both(...)               - prints in console always, if debug is on prints also in log file
+printf_debug_msg(...)          - if debug is on prints in console and log file
+printf_log_only(...)           - if debug is on prints only in log file
+
+------------------------------------------------------------------------------------------------------------
+
+These functions depend on log file type:
+
+printf_log_bold(text, ...)     - if debug is on prints text with bold font in console and log file
+printf_log_err(...)            - prints error message in console (always) and log file (if debug is on)
+printf_log_warn(...)           - prints warning message in console (always) and log file (if debug is on)
+printf_log_note(text, ...)     - prints note in console (always) and log file (if debug is on)
+printf_log_abortion(text, ...) - prints bold red message in console (always) and log file (if debug is on)
+
+
+
