@@ -1,10 +1,10 @@
 # ifndef DEBUG_H
 # define DEBUG_H
 
-#define HTML_DEBUG_MODE
-
 #include <stdio.h>
 #include "font_styles.h"
+
+#define HTML_DEBUG_MODE
 
 extern FILE* log_ptr;
 
@@ -12,7 +12,7 @@ enum err_t
 {
     ok,
     error,
-    no_data
+    null_data
 };
 
 enum md_t
@@ -21,8 +21,12 @@ enum md_t
     on
 };
 
+extern err_t global_err_stat;
+
 void initialize_log(const char* file_name, const char* log_title);
 void end_debugging();
+
+#define CHECK_ERR(RET) if (global_err_stat != ok) return RET
 
 #if defined(TEXT_DEBUG_MODE) || defined(HTML_DEBUG_MODE)
 

@@ -2,6 +2,7 @@
 #include "debug.h"
 
 FILE* log_ptr = NULL;
+err_t global_err_stat = ok;
 
 void initialize_log(const char* file_name, const char* log_title)
 {

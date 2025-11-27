@@ -28,5 +28,8 @@ printf_log_warn(...)           - prints warning message in console (always) and 
 printf_log_note(text, ...)     - prints note in console (always) and log file (if debug is on)
 printf_log_abortion(text, ...) - prints bold red message in console (always) and log file (if debug is on)
 
+------------------------------------------------------------------------------------------------------------
 
+debug.h also has global variable called global_err_stat with err_t type.
+It is used to store error status of whole program. 
 
